@@ -30,15 +30,16 @@ def code():
     print(result)
     print("Second")
     result = 0
-    for update in bad_updates:
+    for update in [x.tolist() for x in bad_updates]:
         # bubble sort
-        for i in range(update.shape[0] - 1, update.shape[0] // 2 - 1, -1):
+        l = len(update)
+        for i in range(l - 1, l  // 2 - 1, -1):
             for j in range(0, i):
                 if (update[j], update[j+1]) in rule_set:
                     #swap
                     update[j], update[j+1] = update[j+1], update[j]
         # print(update)
-        result += update[update.shape[0] // 2]
+        result += update[l // 2]
     
     
     print (result)
